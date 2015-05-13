@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
 
+  resources :boards do
+    resources :images, only: [:create, :destroy]
+  end
+  devise_for :users
+  # root to: 'visionboard#index', as: :authenticated_root
+  root to: 'welcome#index'
   get 'welcome/about'
 
   # The priority is based upon order of creation: first created -> highest priority.

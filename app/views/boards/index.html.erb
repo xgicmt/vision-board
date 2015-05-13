@@ -1,0 +1,5 @@
+<h2>Select Your Vision Board</h2>
+  <%= link_to 'Create A New Vision Board', new_board_path, class: 'btn btn-success'  %>
+    <% @boards.each do |board| %>
+     <p><%= link_to board.name, board %></p>
+    <% end %>

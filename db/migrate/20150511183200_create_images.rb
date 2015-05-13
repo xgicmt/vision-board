@@ -1,0 +1,12 @@
+class CreateImages < ActiveRecord::Migration
+  def change
+    create_table :images do |t|
+      t.string :imageUrl
+      t.decimal :imagePrice
+
+      t.references :board, index: true, foreign_key: true
+
+      t.timestamps null: false
+    end
+  end
+end

@@ -7,8 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+
+  <div class="col-md-8 navbar-header">
+    <ul class "nav nav-tabs">
+      <% if current_user %>
+      <%= link_to "About", welcome_about_path, class: 'signUpLink' %>
+      <% else %>
+        <%= link_to "About", welcome_about_path, class: 'signUpLink' %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="nav-bar">
+      <% if current_user %>
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'signUpLink' %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'signUpLink' %>
+        <%= link_to 'Sign In', new_user_session_path, class: 'signUpLink' %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="alert-success"><%= notice %></div>
+  <div class="alert-danger"><%= alert %></div> 
+
 
 <%= yield %>
-
+</div><!--END CONTAINER-->
 </body>
 </html>

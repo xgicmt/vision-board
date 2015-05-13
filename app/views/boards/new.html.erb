@@ -1,0 +1,6 @@
+<h1>Create a Vision Board</h1>
+  <%= form_for @board do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Name your Vision" %>
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>

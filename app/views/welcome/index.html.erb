@@ -1,2 +1,9 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Vision Board</h1>
+<p>Visualize your desires and enlist the aid of your subconsious to help you achieve those goals</p>
+
+<p>Testing the image search functionality here.</p>
+  <%= form_tag method: "get" do %>
+    <%= label_tag :q , "Search for an Image:" %>
+    <%= text_field_tag :q id: 'js-desires'%>
+    <%= submit_tag "Search" %>
+  <% end %>
