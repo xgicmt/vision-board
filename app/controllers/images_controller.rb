@@ -18,6 +18,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    require(:image).permit(:image_url, :image_price, :board_id)
+    params.require(:image).permit(:image_url, :image_price, :board_id)
   end
 end

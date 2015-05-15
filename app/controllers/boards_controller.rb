@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
 
   def show
   	@board = Board.find(params[:id])
-    #@images = Image.find(params[:board_id])
+
   end
 
   def new
