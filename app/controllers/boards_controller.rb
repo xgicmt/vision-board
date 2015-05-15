@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
 
   def show
   	@board = Board.find(params[:id])
-
+ #   @total_price = @board.images.all.image_price
   end
 
   def new

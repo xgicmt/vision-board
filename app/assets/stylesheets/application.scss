@@ -3,3 +3,21 @@
 
 .dropBox{width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
 .searchedImages{margin:10px; border:solid black 2px;}
+.gridster ul li{
+  list-style-type:none;
+  padding:10px;
+  background-color:darkgrey;
+  border:2px solid white;
+}
+.gridster{
+	background-color:lightgrey;
+	border:gray, 2px solid;
+	border-radius:10px;
+	min-height:600px;
+}
+#previews {
+  margin-top:25px;
+  overflow-x: scroll;
+  outline:2px solid black;
+  height:325px;
+}

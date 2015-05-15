@@ -3,6 +3,7 @@ class ImagesController < ApplicationController
   	  @board = Board.find(params[:board_id])
   	  @images = @board.images
   	  @image = @board.images.build(image_params)
+
   	  if @image.save
   	   	flash[:notice] = "Board Updated"
     	redirect_to @board
