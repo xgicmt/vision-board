@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  attr_accessor :remote_image_url
+  #attr_accessor :remote_image_url
 
   belongs_to :board
 

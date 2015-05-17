@@ -9,18 +9,20 @@ var API_KEY = '39897bce9cebadddcab8';
 $(document).ready(function() {
   $('#js-desires').on('keyup', function(e) {
     if ($('#js-desires').val().length === 0){ $('#previews').empty(); }
+
   if($('#js-desires').val().length > 1){
     var URL = "http://pixabay.com/api/?username="+USERNAME+"&key="+API_KEY+"&q="+encodeURIComponent($("#js-desires").val());
-
       $.getJSON(URL, function(data){
-        var counter = 0;
+      //  var counter = 0;
       //  console.log(data);
         if (parseInt(data.totalHits) > 0) {
               $.each(data.hits, function(i, hit){
-                $('<img class="searchedImages" id="'+ hit.id +' "src="' + hit.previewURL + '" width="150" height="150" draggable="true" ondragstart="drag(event)"data="'+ hit.webformatURL +'">').load(function () {
-                  if ($(hit.id).length > 0){   
-                    $(this).appendTo('#previews');
-                  }
+                //$('<img class="searchedImages" id="'+ hit.id +' "src="' + hit.previewURL + '" width="150" height="150" draggable="true" ondragstart="drag(event)"data="'+ hit.webformatURL +'">').load(function () {
+                 // if ($(hit.id).length > 0){  
+                $('<img class="searchedImages" id="' + hit.webformatURL + '" src="' + hit.previewURL + '" width="150" height="150" draggable="true" ondragstart="drag(event)">').load(function () {
+                  if ($('#' + hit.id).length === 0){   
+                    $(this).prependTo('#previews');
+                  }//end if id exists
                 })
               })
         }
@@ -28,7 +30,7 @@ $(document).ready(function() {
             console.log('No hits'); 
         }
     });
-    }//end if
+    }//end if input is greater than 1
   });
 });
 
