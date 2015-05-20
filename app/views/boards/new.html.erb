@@ -1,6 +1,19 @@
 <h1>Create a Vision Board</h1>
-  <%= form_for @board do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "Name your Vision" %>
-    <%= f.submit "Save", class: 'btn btn-success' %>
+<div class="row">
+    <div class="col-md-4">
+    <%= form_for @board do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Name your Vision" %></p>
+    <p>
+      <%= f.label 'Budget (Optional)' %>
+      <%= f.text_field :budget, class: 'form-control', placeholder: "Budget " %>
+    </p>
+    <p>
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </p>
+
   <% end %>
+
+  </div>
+</div>

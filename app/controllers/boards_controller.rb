@@ -1,10 +1,15 @@
 class BoardsController < ApplicationController
   def index
-  	@boards = Board.all
+  	@boards = current_user.boards
   end
 
   def show
-  	@board = Board.find(params[:id])
+    if current_user.id == Board.find(params[:id]).user_id
+    	@board = Board.find(params[:id])
+    else
+      flash[:alert] = "Permissions Error: It seems you are not authorized to view that page."
+      redirect_to root_path
+    end
  #   @total_price = @board.images.all.image_price
   end
 
@@ -13,11 +18,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(board_params)
+   # @board = Board.new(board_params)
+   @board = current_user.boards.build(board_params)
     if @board.save
     	redirect_to @board, notice: 'Board successfully created!'
     else
-    	flash[:error] = "Error creating your Board, please try agian."
+    	flash[:alert] = "Error creating your Board, please try agian."
     	render :new
     end
   end
@@ -36,7 +42,7 @@ class BoardsController < ApplicationController
 private
 
     def board_params
-      params.require(:board).permit(:name)
+      params.require(:board).permit(:name, :budget)
     end
 
 end

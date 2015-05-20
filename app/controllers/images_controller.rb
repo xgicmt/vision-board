@@ -4,12 +4,12 @@ class ImagesController < ApplicationController
   	  @images = @board.images
   	  @image = @board.images.build(image_params)
 
-  	  if @image.save
-  	   	flash[:notice] = "Board Updated"
-    	redirect_to @board
+  	if @image.save
+  	 flash[:notice] = "Board Updated"
+     redirect_to @board
     else
-    	flash[:error] = "Error occurred"
-    	redirect_to = @board
+     flash[:alert] = "An Error occurred, possibly no image was selected."
+     redirect_to @board
     end
   end
 
@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
   		flash[:notice] = "Image was successfully removed."
   		redirect_to @board
   	else
-  		flash[:notice] = 'There was an error, please try again.'
+  		flash[:alert] = 'There was an error, please try again.'
   		redirect_to @board
   	end
   end
@@ -28,7 +28,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image_url, :image_price, :remote_image_url_url, :image_url_cache, :board_id)
+    params.require(:image).permit(:image_url, :image_price, :remote_image_url_url, :landscape, :image_url_cache, :board_id)
   end
 end
 

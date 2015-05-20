@@ -1,46 +1,46 @@
 <h1><%= @board.name %></h1> 
 <div class="row">
-<h3>Vision Board Budget $<%=@board.budget %></h3> 
-<h3>Remaining $<%= total_spent%> </h3>
-
+<% if @board.budget != nil %>
+<h3>Budget: <small>$<%=@board.budget %> </small></h3> 
+<h3>Remaining: <small>$<%= total_spent%></small> </h3>
+<% end %>
   <div class="col-md-8 vision-board">
-  <div class="gridster ready">
+   <div class="gridster ready" id="board">
+    <div class="topLoader"><div class="loader"></div></div>
     <ul id="hello">
-    <% @id_num = 1 %>
     <% @board.images.each do |image|%>  
-     <li id="image<%= @id_num %>" data-row="1" data-col="1" data-sizex="<%= image.is_landscape? ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
+     <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %><%#= image.is_landscape? ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
        <div class="deleteButton">
          <%= link_to "X", board_image_path(@board.id, image.id), method: :delete, data: {confirm: 'Please confirm that you wish to remove this image.'} %>
        </div>
        <%#= link_to(image_tag(image.image_url.large), "#" , class: 'imageLink') %>
        <p class="imagePrice"><%= image.image_price %></p>
      </li>
-     <% @id_num += 1 %>
     <% end %>
     </ul>
     </div>
-  </div>
+   </div>
   <div class="col-md-4 vision-selection">
     <%= form_for [@board, @board.images.build] do |f| %>
-      <div class="form-group">
-        <%= f.label 'Price' %>
-        <%= f.text_field :image_price %>
-      </div>
       <div class="form-group">
         <%= f.label 'Select Image' %>
         <%= f.file_field :image_url%>
         <%= f.hidden_field :image_url_cache %>
       </div>
       <div class="form-group">
-        <%= f.label 'Upload Image From a URL' %>
-        <%= f.text_field :remote_image_url_url %>
-        
+        <%= f.label 'Upload Image From a URL' %><br>
+        <%= f.text_field :remote_image_url_url, class: 'form-control' %>        
       </div>
       <div class="form-group">
-        <%= f.submit "Add Image", class: 'btn btn-success' %>
+        <%= f.label 'Price' %><br>
+        <%= f.text_field :image_price, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Add Image", class: 'btn btn-success', id: 'addImage', data: {disable_with: "Updating..."} %>
       </div>
       <% end %>
-      <%= label_tag 'js-desires' , "Search for an Image:" %>
+      <%= label_tag 'js-desires' , "Search for an Image:" %><br>
       <%= text_field_tag 'js-desires'%>
+      <%= button_tag 'search', {id: "searchPicts"}%>
       <div id="previews"></div>
   </div> 
