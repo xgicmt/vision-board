@@ -50,6 +50,10 @@ process :resize_to_fit => [nil, 300]
      %w(jpg jpeg gif png)
    end
 
+
+#def landscape? img
+#  pic = MiniMagick::Image.read(img.path).first
+#end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename

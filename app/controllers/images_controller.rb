@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
   	  @image = @board.images.build(image_params)
 
   	if @image.save
+      @image.landscape!
   	 flash[:notice] = "Board Updated"
      redirect_to @board
     else

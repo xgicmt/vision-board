@@ -7,11 +7,23 @@ class Image < ActiveRecord::Base
 
   validates :image_url, presence: true
 
+  #after_create :landscape?
+  #Hooks
+
 
   def dimensions
     @dimensions ||= MiniMagick::Image.open("#{image_url}")
   end
+
   def is_landscape?
    dimensions['width'] > dimensions['height']
   end
+
+  def landscape!
+    if is_landscape? 
+      self.landscape =true
+      self.save
+    end
+  end
+
 end

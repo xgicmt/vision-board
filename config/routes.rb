@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     resources :images, only: [:create, :destroy]
   end
   devise_for :users
-  # root to: 'visionboard#index', as: :authenticated_root
+  
+  authenticated :user do
+   root to: 'boards#index', as: :authenticated_root
+  end
+  
   root to: 'welcome#index'
   get 'welcome/about'
 

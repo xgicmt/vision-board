@@ -1,6 +1,10 @@
 class BoardsController < ApplicationController
   def index
-  	@boards = current_user.boards
+    if current_user
+    	@boards = current_user.boards
+    else
+      redirect_to root_path
+    end
   end
 
   def show

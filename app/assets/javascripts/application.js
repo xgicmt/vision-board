@@ -6,10 +6,10 @@
 var USERNAME = 'xgicmt0';
 var API_KEY = '39897bce9cebadddcab8';
 //NEW SEARCH FUNCTION
-$(document).ready(function(){
-  $('#addImage').click(function(){
-    $('.topLoader').slideDown("slow");
-  })
+  $(document).ready(function(){
+    $('#addImage').click(function(){
+      $('.topLoader').slideDown("slow");
+    })
 });
 
 $(document).ready(function(){
@@ -50,22 +50,21 @@ $(document).ready(function() {
 });
 
 
-function allowDrop(ev) {
+  function allowDrop(ev) {
     ev.preventDefault();
-}
+  }
 
-function drag(ev) {
+  function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-}
+  }
 
-function drop(ev) {
+  function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-}
+  }
 
-$(function(){ //DOM Ready
- 
+  $(function(){ //DOM Ready
     $(".gridster ul").gridster({
         widget_margins: [0, 10],
         widget_base_dimensions: [140, 180],
@@ -75,8 +74,7 @@ $(function(){ //DOM Ready
           min_size: [1,1]
         }
     });
- 
-});
+  });
 
 //$(document).ready(function() {
 //  $('#new_image').click(function() {
