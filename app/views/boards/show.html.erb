@@ -2,7 +2,7 @@
 <div class="row">
 <% if @board.budget != nil %>
 <h3>Budget: <small>$<%=@board.budget %> </small></h3> 
-<h3>Remaining: <small>$<%= total_spent%></small> </h3>
+<h3>Remaining: <small <%= total_spent < 0 ? "style=color:red;" :  "style=color:green;" %>>$<%= total_spent%></small> </h3>
 <% end %>
   <div class="col-md-8 vision-board">
    <div class="gridster ready" id="board">
@@ -44,7 +44,7 @@
       <%= label_tag 'js-desires' , "Search for an Image:" %><br>
       <%= text_field_tag 'js-desires'%>
       <%= button_tag 'search', {id: "searchPicts"}%>
-        <a href="http://pixabay.com/" style="margin:3px 15px 5px 0;font-size:13px;line-height:1.4;color:#777;display:block;padding:8px 12px 7px;border:1px solid #aaa">
+        <a href="http://pixabay.com/" class="pixabay" >
             powered by<br><img src='https://visionboard-development.s3.amazonaws.com/images/pixabayLogo.png' width="90px"></a>
       <div id="previews"></div>
   </div> 
