@@ -2,6 +2,7 @@
 <div class="row">
     <div class="col-md-4">
     <%= form_for @board do |f| %>
+    <%= f.hidden_field :shared_link, :value => shared_link_gen %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control', placeholder: "Name your Vision" %></p>

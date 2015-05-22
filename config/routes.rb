@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   resources :images
   #get 'images/edit' => 'images#edit'
+  resources :share, only: [:show]
 
+  
   root to: 'welcome#index'
   get 'welcome/about'
 

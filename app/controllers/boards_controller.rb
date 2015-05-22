@@ -55,10 +55,11 @@ class BoardsController < ApplicationController
   def edit
   end
 
+
 private
 
     def board_params
-      params.require(:board).permit(:name, :budget)
+      params.require(:board).permit(:name, :budget, :shared_link)
     end
 
 end

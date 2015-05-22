@@ -1,0 +1,19 @@
+<h1><%= @board.name %></h1>
+  <% if @board.budget != nil %>
+    <h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
+    <h3 style="float:left; margin-left:50px;">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
+  <% end %>
+<div class="col-md-10 vision-board">
+   <div class="gridster ready" id="board">
+    <div class="topLoader"><div class="loader"></div></div>
+    <ul id="hello">
+    <% @board.images.each do |image|%>  
+     <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
+       <% if image.image_price != nil %>
+         <p class="imagePrice">$<%= to_currency(image.image_price) %></p>
+       <% end %>
+     </li>
+    <% end %>
+    </ul>
+   </div>
+</div>
