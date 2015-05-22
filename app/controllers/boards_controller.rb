@@ -31,6 +31,18 @@ class BoardsController < ApplicationController
     	render :new
     end
   end
+
+  def destroy
+    @board = Board.find(params[:id])
+    if @board.destroy
+      flash[:notice] = "Your vision board has been removed successfully."
+      redirect_to root_path
+    else
+      flash[:alert] = "Error removing your vision board, please try again."
+      render :show
+    end
+  end
+
   def update
   #  if Image.update_attributes(params.require(:image).permit(:imageUrl, :imagePrice, :board_id))
   #  	flash[:notice] = "Board Updated"

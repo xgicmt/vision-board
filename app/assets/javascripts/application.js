@@ -26,7 +26,7 @@ $(document).ready(function() {
   //  if ($('#js-desires').val().length === 0){ $('#previews').empty(); }
 
   if($('#js-desires').val().length > 1){
-    var URL = "http://pixabay.com/api/?username="+USERNAME+"&key="+API_KEY+"&q="+encodeURIComponent($("#js-desires").val());
+    var URL = "//pixabay.com/api/?username="+USERNAME+"&key="+API_KEY+"&q="+encodeURIComponent($("#js-desires").val());
       $.getJSON(URL, function(data){
       //  var counter = 0;
       //  console.log(data);

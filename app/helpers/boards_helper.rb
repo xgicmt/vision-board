@@ -5,7 +5,11 @@ module BoardsHelper
       @board.images.each { |image| total_spent << image.image_price}
       @board.budget - total_spent.to_a.sum{ |e| e.to_i }
     end
+  def total_style
+     total_spent < 0 ? "style=color:red;" : "style=color:green;"
+  end
 
-
-
+def to_currency(number)
+  number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+end
 end

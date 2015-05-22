@@ -26,6 +26,25 @@ class ImagesController < ApplicationController
   	end
   end
 
+  def edit
+   # @board = Board.find(params[:id])
+    @image = Image.find(params[:id])
+  end
+
+  def update
+    @image = Image.find(params[:id])
+    @board = Board.find(@image.board_id)
+    if @image.update_attributes(image_params)
+      flash[:notice] = "Image updated"
+      redirect_to @board   
+    else
+      flash[:alert] = "An error occurred updating your image, please try again."
+      render :edit
+    end
+
+    else
+
+  end
   private
 
   def image_params

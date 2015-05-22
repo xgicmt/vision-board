@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   authenticated :user do
    root to: 'boards#index', as: :authenticated_root
   end
-  
+  resources :images
+  #get 'images/edit' => 'images#edit'
+
   root to: 'welcome#index'
   get 'welcome/about'
 

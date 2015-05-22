@@ -1,8 +1,8 @@
 <h1><%= @board.name %></h1> 
 <div class="row">
 <% if @board.budget != nil %>
-<h3>Budget: <small>$<%=@board.budget %> </small></h3> 
-<h3>Remaining: <small <%= total_spent < 0 ? "style=color:red;" :  "style=color:green;" %>>$<%= total_spent%></small> </h3>
+<h3>Budget: <small>$<%=to_currency(@board.budget) %> </small></h3> 
+<h3>Remaining: <small <%= total_style %>> $<%= to_currency(total_spent) %></small> </h3>
 <% end %>
   <div class="col-md-8 vision-board">
    <div class="gridster ready" id="board">
@@ -10,18 +10,24 @@
     <ul id="hello">
     <% @board.images.each do |image|%>  
      <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %><%#= image.is_landscape? ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
+       <div class="editButton">
+         <%= link_to "+", edit_image_path(:id => image.id), class: 'tooltipLovers', title: 'Edit Image Information' %>
+       </div>
        <div class="deleteButton">
-         <%= link_to "X", board_image_path(@board.id, image.id), method: :delete, data: {confirm: 'Please confirm that you wish to remove this image.'} %>
+         <%= link_to "X", board_image_path(@board.id, image.id), title: 'Delete Image', class: 'tooltipLovers', method: :delete, data: {confirm: 'Please confirm that you wish to remove this image.'} %>
        </div>
        <%#= link_to(image_tag(image.image_url.large), "#" , class: 'imageLink') %>
        <% if image.image_price != nil %>
-         <p class="imagePrice"><%= image.image_price %></p>
+         <p class="imagePrice">$<%= to_currency(image.image_price) %></p>
        <% end %>
      </li>
     <% end %>
     </ul>
     </div>
-   </div>
+      <div>
+      <%= link_to "Delete Board", @board, class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure you want to remove your vision board and all of it's images?"}  %>
+      </div>
+    </div>
   <div class="col-md-4 vision-selection">
     <%= form_for [@board, @board.images.build] do |f| %>
       <div class="form-group">
@@ -33,10 +39,12 @@
         <%= f.label 'Upload Image From a URL' %><br>
         <%= f.text_field :remote_image_url_url, class: 'form-control', id: 'urlUpload'%>        
       </div>
+  <% if @board.budget != nil %>
       <div class="form-group">
         <%= f.label 'Price' %><br>
-        <%= f.text_field :image_price, class: 'form-control' %>
+        <%= f.number_field :image_price, class: 'form-control' %>
       </div>
+  <% end %>
       <div class="form-group">
         <%= f.submit "Add Image", class: 'btn btn-success', id: 'addImage', data: {disable_with: "Updating..."} %>
       </div>

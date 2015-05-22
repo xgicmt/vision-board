@@ -14,6 +14,7 @@
 	border:gray, 2px solid;
 	border-radius:10px;
 	min-height:600px;
+	margin-bottom:15px;
 }
 #previews {
   margin-top:25px;
@@ -22,6 +23,7 @@
   height:325px;
 }
 .imagePrice {
+  display:none;
   position: absolute;
   bottom:0;
   right:0;
@@ -40,16 +42,72 @@
   width:20px;
   text-align:center;
   border-radius: 100%;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 55, 55, .3);
   padding:3px;
-  font-size:12px;
+  font-size: 18px;
+  line-height:14px;
+  color:blue;
 }
+.deleteButton a:hover{text-decoration: none;}
+.editButton a:hover{text-decoration: none;}
+.editButton {
+  display:none;
+  position: absolute;
+  top: 3px;
+  right: 26px;
+  height:20px;
+  width:20px;
+  text-align:center;
+  border-radius: 100%;
+  background-color: rgba(55, 255, 55, .3);
+  padding:3px;
+  font-size: 25px;
+  line-height:10px;
+  color:blue;
+}
+
+	
+		.tooltipLovers{
+   			display: inline;
+    		position: relative;
+		}
+		
+		.tooltipLovers:hover:after{
+    		background: #333;
+    		background: rgba(0,0,0,.8);
+    		border-radius: 5px;
+    		bottom: 26px;
+    		color: #fff;
+    		content: attr(title);
+    		left: 20%;
+    		padding: 5px 15px;
+    		position: absolute;
+    		z-index: 98;
+    		width: 220px;
+    		font-size:12px;
+		}
+		
+		.tooltipLovers:hover:before{
+    		border: solid;
+    		border-color: #333 transparent;
+    		border-width: 6px 6px 0 6px;
+    		bottom: 20px;
+    		content: "";
+    		left: 50%;
+    		position: absolute;
+    		z-index: 99;
+		}
+	
+
 .gs-w {
   background-size: 100% 100%;
   background-repeat:no-repeat;
 }
 .gs-w:hover > div{
   display:block;
+}
+.gs-w:hover > p{
+	display:block;
 }
 .topLoader {
 	display:none;
