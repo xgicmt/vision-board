@@ -13,9 +13,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+ #  "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{single_store_dir}"
   end
-
+        def single_store_dir
+          data_column = model.send("#{mounted_as}_identifier")
+          "#{mounted_as}/#{data_column[0..1]}/#{data_column[2..3]}/#{data_column[4..5]}"
+        end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

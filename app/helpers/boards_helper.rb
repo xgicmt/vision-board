@@ -18,4 +18,12 @@ module BoardsHelper
 	[*('a'..'z'),*('A'..'Z'),*('0'..'9')].to_a.shuffle[0,8].join
   end
 
+  def board_array
+
+   board_array = [] 
+      @board.images.each { |image| board_array << image.image_url.to_s.split('/')[-1] }
+    board_array
+   
+  end
+ 
 end

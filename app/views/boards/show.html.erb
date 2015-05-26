@@ -1,12 +1,12 @@
 <h1><%= @board.name %></h1> 
- <% if @board.shared_link != nil %><%= link_to "Share Your Board", share_path(@board.shared_link), class: 'btn btn-primary' %> <% end %>
+<%= link_to "Share Your Board", share_path(@board.shared_link), class: 'btn btn-primary' %>
 <div class="row">
 <% if @board.budget != nil %>
 <h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
 <h3 style="float:left; margin-left:50px;">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
 <% end %>
   <div class="col-md-8 vision-board">
-   <div class="gridster ready" id="board">
+   <div class="gridster ready" id="board" ondrop="drop(event)" ondragover="allowDrop(event)">
     <div class="topLoader"><div class="loader"></div></div>
     <ul id="hello">
     <% @board.images.each do |image|%>  
@@ -17,7 +17,6 @@
        <div class="deleteButton">
          <%= link_to "X", board_image_path(@board.id, image.id), title: 'Delete Image', class: 'tooltipLovers', method: :delete, data: {confirm: 'Please confirm that you wish to remove this image.'} %>
        </div>
-       <%#= link_to(image_tag(image.image_url.large), "#" , class: 'imageLink') %>
        <% if image.image_price != nil %>
          <p class="imagePrice">$<%= to_currency(image.image_price) %></p>
        <% end %>
@@ -50,10 +49,19 @@
         <%= f.submit "Add Image", class: 'btn btn-success', id: 'addImage', data: {disable_with: "Updating..."} %>
       </div>
       <% end %>
-      <%= label_tag 'js-desires' , "Search for an Image:" %><br>
-      <%= text_field_tag 'js-desires'%>
-      <%= button_tag 'search', {id: "searchPicts"}%>
-        <a href="http://pixabay.com/" class="pixabay" >
-            powered by<br><img src='https://visionboard-development.s3.amazonaws.com/images/pixabayLogo.png' width="90px"></a>
-      <div id="previews"></div>
+      <h4>Images from the Community</h4>
+        </div>
+      <div id="communityPreviews" class="borderWrapper">
+              <%  image_array = [] %>
+              <%  @selectedImages.each do |img| %>
+                 <% unless board_array.include?(img.image_url.to_s.split('/')[-1]) || image_array.include?(img.image_url.to_s.split('/')[-1]) %>
+                    <img src="<%= img.image_url %>" class="searchedImages" id="<%= img.id %>" height="100" width="100" draggable="true"
+ondragstart="drag(event)"/>
+                    <% image_array << img.image_url.to_s.split('/')[-1] %>
+                  <% end %>
+              <% end %>
+      </div>
   </div> 
+<script>
+   var board_id = <%= @board.id %>;
+</script>

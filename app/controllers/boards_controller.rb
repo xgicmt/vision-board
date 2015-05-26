@@ -14,7 +14,9 @@ class BoardsController < ApplicationController
       flash[:alert] = "Permissions Error: It seems you are not authorized to view that page."
       redirect_to root_path
     end
- #   @total_price = @board.images.all.image_price
+    @selectedImages = Image.order("RANDOM()").limit(10)
+   # @selectedImages.uniq!{|image| image.image_url.to_s.split('/')[-1]}
+  
   end
 
   def new

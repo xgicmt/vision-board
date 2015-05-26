@@ -3,6 +3,7 @@
 .alert{clear:both;}
 .dropBox{width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
 .searchedImages{margin:10px; border:solid black 2px;}
+.vision-board{clear:both;}
 .gridster ul li{
   list-style-type:none;
   padding:10px;
@@ -130,6 +131,16 @@ footer{
 	height:50px;
 	font-size:10px;
 	text-align:center;
+}
+#communityPreviews{
+  margin-top:25px;
+  overflow-x: scroll;
+  height:325px;
+  text-align:center;
+}
+.borderWrapper{
+  border: 1px dashed #ddd;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #ddd, 0 0 0 10px #fff, 0 0 2px 10px #eee;
 }
 /*********************LOADER ICON***********************/
 .loader {
