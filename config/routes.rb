@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :boards do
     resources :images, only: [:create, :destroy]
   end
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  devise_scope :user do
+  get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+end
   
   authenticated :user do
    root to: 'boards#index', as: :authenticated_root
