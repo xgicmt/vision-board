@@ -14,9 +14,6 @@ module BoardsHelper
     number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
   end
 
-  def shared_link_gen
-	[*('a'..'z'),*('A'..'Z'),*('0'..'9')].to_a.shuffle[0,8].join
-  end
 
   def board_array
 
