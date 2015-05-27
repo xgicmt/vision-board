@@ -156,6 +156,24 @@ footer{
 	background-color: gold;
 	border-color: orange;
 }
+.previewTitles{
+  text-align:center;
+  text-decoration:underline;
+  margin-bottom:0px;
+}
+.previewTitle p{
+  text-align:center;
+}
+.overTron{
+  text-align:right;
+}
+.overTron h3{
+  text-shadow: 2px 2px 5px #000;
+}
+.overTron a{
+  box-shadow: 2px 2px 10px #000;
+}
+
 /*********************SOCIAL BUTTONS********************/
 
 .btn-facebook{

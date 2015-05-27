@@ -10,7 +10,7 @@
     <div class="topLoader"><div class="loader"></div></div>
     <ul id="hello">
     <% @board.images.each do |image|%>  
-     <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %><%#= image.is_landscape? ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
+     <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
        <div class="editButton">
          <%= link_to "+", edit_image_path(:id => image.id), class: 'tooltipLovers', title: 'Edit Image Information' %>
        </div>
@@ -49,7 +49,8 @@
         <%= f.submit "Add Image", class: 'btn btn-success', id: 'addImage', data: {disable_with: "Updating..."} %>
       </div>
       <% end %>
-      <h4>Images from the Community</h4>
+      <h4 class="previewTitles">Images from the Community</h4>
+      <p class="previewTitle">See something you like, just drag an image to your board</p>
         </div>
       <div id="communityPreviews" class="borderWrapper">
               <%  image_array = [] %>

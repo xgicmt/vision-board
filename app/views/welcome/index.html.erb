@@ -1,15 +1,17 @@
 <h1>The Vision Board <small>or Million Dollar Bucket List</small></h1>
 <div class="col-md-8">
   <h2>The Vision Board</h2>
+  <div class="jumbotron" style="background: url('<%= @imageP.first.image_url %>') no-repeat 50%, url('<%= @imageP.second.image_url %>') no-repeat right, url('<%= @imageL.first.image_url %>')no-repeat left;">
+       <div class="overTron">
+       <h3 style="color:white;">Start creating your future</h3>
+         <p><%= link_to 'Create Your Own Vision Board', new_user_registration_path, class: 'btn btn-callToAction' %></p>
+         <p><%= link_to "You can Log in with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook' %></p>
+     </div>
+  </div>
     <p>Visualize your goals and you will achieve them, that is the power of the human spirit!</p>
     <p>When you create a visual representation of your desires, it enlists your subconscious to creatively find ways to accomplish those goals.</p> 
     <p>Setting clear goals allows you to have a road map pointing to your desires, which will allow you to make educated decisions when you reach a metaphoric fork in the road.</p>
     <p>Finally, it helps to keep you motivated. If you are ready to begin, sign up - it's free, and let's start you on a new vision, one with all of your dreams being realized.</p>
-
-
-  <h2>Million Dollar Bucket List</h2>
-    <h3>What would you do with a million dollars?</h3>
-      <p>Would you take half over to your friend Asadulah who works in securities, or perhaps do nothing, nothing at all? - Then this site might not be for you.</p> 
-      <p>If you'd rather buy lots of really cool cars, take amazing trips, and enjoy the greatest toys, then you'll enjoy our budget feature.  Give yourself a budget, perhaps a million, and when you upload your images, you can include a price, we'll let you know when you go over budget.</p>
-      <p>So sign up, and start pretend spending like you've started a Super Pack, yes we allow you to create budgets that high :-)</p>
+<%= link_to("Check Out A Sample Board", 'share/XCWIgLEp') %>
 </div>
+
