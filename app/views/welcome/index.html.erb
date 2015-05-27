@@ -1,11 +1,11 @@
-<h1>The Vision Board <small>or Million Dollar Bucket List</small></h1>
+<h1>The Vision Board <small>Set your path</small></h1>
 <div class="col-md-8">
   <h2>The Vision Board</h2>
   <div class="jumbotron" style="background: url('<%= @imageP.first.image_url %>') no-repeat 65%, url('<%= @imageP.second.image_url %>') no-repeat right, url('<%= @imageL.first.image_url %>')no-repeat left;">
        <div class="overTron">
        <h3 style="color:white;">Start creating your future</h3>
          <p><%= link_to 'Create Your Own Vision Board', new_user_registration_path, class: 'btn btn-callToAction' %></p>
-         <p><%= link_to "You can Log in with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook' %></p>
+         <p><%= link_to "You Can Sign Up With Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook' %></p>
      </div>
   </div>
     <p>Visualize your goals and you will achieve them, that is the power of the human spirit!</p>
