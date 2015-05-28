@@ -4,6 +4,16 @@
 .dropBox{width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
 .searchedImages{margin:10px; border:solid black 2px;}
 .vision-board{clear:both;}
+#header{
+  border-bottom:1px solid #3b5998;
+}
+h1 {
+  color:#3b5998;
+}
+.navbar-text{
+  color:#3b5998;
+  text-transform:uppercase;
+}
 .gridster ul li{
   list-style-type:none;
   padding:10px;
@@ -31,8 +41,10 @@
   left:0;
   text-align:center;
   padding: 0 10px;
-  color: blue;
+  color: white;
+  font-size:20px;
   background-color: rgba(255, 255, 255, 0.3);
+  text-shadow:2px 2px 15px #000;
 }
 .deleteButton {
   display:none;
@@ -164,8 +176,14 @@ footer{
 .previewTitle p{
   text-align:center;
 }
-.overTron{
-  text-align:right;
+.overTron {
+  background-color:rgba(0,110,155,.3);
+  text-align: right;
+  display:inline-block;
+  padding:0 20px;
+  border-radius:10px;
+  margin-left:35%;
+  box-shadow: 5px 5px 15px #000;
 }
 .overTron h3 {
   text-shadow: 2px 2px 15px #000;
@@ -174,9 +192,58 @@ footer{
 .overTron a{
   box-shadow: 2px 2px 10px #000;
 }
+#shared p {
+  padding: 10px;
+  font-size: 22px;
+  margin-top:10px;
+  border: 1px solid #3b5998;
+  display:inline-block;
+}
+.fbLogin{
+  margin-left:20%;
+}
+.orClass{
+  margin-top: 10px; 
+  text-align:center;
+}
+author{
+  display:block;
+  text-align:right;
+  margin-right:50px;
+  color: #777777;
+  font-weight:bold;
+}
+author:before{
+  content:'- '
 
+}
+.accountHeader{
+  color:#3b5998;
+  font-weight: light;
+ border-bottom:1px solid #3b5998;
+ text-align:center;
+}
+.portal{
+  margin-top:15px;
+  background-color:rgba(10,150,150,.2);
+  padding:0 10px 10px;
+  border-radius:10px;
+}
 /*********************SOCIAL BUTTONS********************/
+.btn-go {
+  border-radius: 100%;
+  color: white;
+  font-size:18px;
+  background-color:#3b5998;
+  height:50px;
+  width:50px;
+  line-height:35px;
 
+}
+.btn-go:hover{
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
 .btn-facebook{
   color:white;
   background-color: #3b5998;

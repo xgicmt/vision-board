@@ -23,6 +23,14 @@
         }
     });
   });
+  function show_shared(div_id){
+    if(false == $(div_id).is(':visible')){
+      $(div_id).show(500);
+    }
+    else{
+      $(div_id).hide(500);
+    }
+  }
 //Drag and Drop 
  function allowDrop(ev) {
     ev.preventDefault();

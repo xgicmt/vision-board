@@ -1,7 +1,8 @@
-<h2>Sign up</h2>
-<div class="col-md-4" >
-<%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook' %>
-<p style="margin-top: 10px; margin-left:20%;"> -or- </p>
+<div class="col-md-4"></div>
+<div class="col-md-4 portal">
+<h2 class="accountHeader">Create an Account</h2>
+<%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook fbLogin' %>
+<p class="orClass"> -or- </p>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -30,3 +31,4 @@
 
 <%= render "devise/shared/links" %>
 </div>
+<div class="col-md-4"></div>

@@ -1,17 +1,19 @@
 <h1>The Vision Board <small>Set your path</small></h1>
-<div class="col-md-8">
-  <h2>The Vision Board</h2>
+<div class="col-md-1"></div>
+<div class="col-md-10">
   <div class="jumbotron" style="background: url('<%= @imageP.first.image_url %>') no-repeat 65%, url('<%= @imageP.second.image_url %>') no-repeat right, url('<%= @imageL.first.image_url %>')no-repeat left;">
        <div class="overTron">
        <h3 style="color:white;">Start creating your future</h3>
-         <p><%= link_to 'Create Your Own Vision Board', new_user_registration_path, class: 'btn btn-callToAction' %></p>
-         <p><%= link_to "You Can Sign Up With Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook' %></p>
+         <p><%= link_to 'Create A Vision Board', new_user_registration_path, class: 'btn btn-callToAction' %></p>
+         <p><%= link_to 'Sign Up With Facebook', user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook' %></p>
      </div>
   </div>
     <p>Visualize your goals and you will achieve them, that is the power of the human spirit!</p>
     <p>When you create a visual representation of your desires, it enlists your subconscious to creatively find ways to accomplish those goals.</p> 
     <p>Setting clear goals allows you to have a road map pointing to your desires, which will allow you to make educated decisions when you reach a metaphoric fork in the road.</p>
-    <p>Finally, it helps to keep you motivated. If you are ready to begin, sign up - it's free, and let's start you on a new vision, one with all of your dreams being realized.</p>
+    <p>Finally, it helps to keep you motivated. If you are ready to begin, sign up - it's free and fun!</p>
+    <p>A quick note from the author:</p>
+    <blockquote>This might seem like a weird blend of hippie and materialistic idealogy, but I'm telling you it really helps to keep you on track. I created this project while working from home, where distractions abound, but after creating my sample vision board I noticed that I looked at my phone less, went to the kitchen for a snack less.  I had work to do, I still have work to do, and that is where I am, knocking out this project so someday, that Audi R8 will be in my garage and not just on my vision board.  Thanks for all of the support, and I hope this project helps you along your path.<author>Chris Thompson</author></blockquote>
 <%= link_to("Check Out A Sample Board", 'share/XCWIgLEp') %>
 </div>
-
+<div class="col-md-1"></div>

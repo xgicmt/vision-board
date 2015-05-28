@@ -1,5 +1,9 @@
 <h1><%= @board.name %></h1> 
-<%= link_to "Share Your Board", share_path(@board.shared_link), class: 'btn btn-primary' %>
+<a class="btn btn-primary" onclick="show_shared(shared)">Share Your Board</a>
+<div id="shared" class="showShared" style="display:none">
+<p>https://www.visionboard.herokuapp.com/<%=@board.shared_link%></p>
+<%= link_to "Go", share_path(@board.shared_link), class: 'btn btn-go' %>
+</div>
 <div class="row">
 <% if @board.budget != nil %>
 <h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
