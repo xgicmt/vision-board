@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
 		else
 			session["devise.facebook_data"] = request.env["omniauth.auth"]
-			flash[:notice] = "User already exists, try your email"
+			flash[:alert] = "User already exists, Try logging in with your email."
 			redirect_to new_user_registration_url
 		end
 	end

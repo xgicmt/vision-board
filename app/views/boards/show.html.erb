@@ -8,6 +8,8 @@
 <% if @board.budget != nil %>
 <h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
 <h3 style="float:left; margin-left:50px;">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
+<%else %>
+ <h3> </h3>
 <% end %>
   <div class="col-md-8 vision-board">
    <div class="gridster ready" id="board" ondrop="drop(event)" ondragover="allowDrop(event)">

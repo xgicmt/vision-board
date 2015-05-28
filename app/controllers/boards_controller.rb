@@ -15,7 +15,6 @@ class BoardsController < ApplicationController
       redirect_to root_path
     end
     @selectedImages = Image.order("RANDOM()").limit(10)
-   # @selectedImages.uniq!{|image| image.image_url.to_s.split('/')[-1]}
   
   end
 
