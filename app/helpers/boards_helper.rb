@@ -1,13 +1,13 @@
 module BoardsHelper
 
   def total_spent
-	total_spent = []
-    @board.images.each { |image| total_spent << image.image_price}
-    @board.budget - total_spent.to_a.sum{ |e| e.to_i }
+	  total_spent = []
+    @board.images.each { |image| total_spent << image.image_price }
+    @board.budget - (total_spent.sum { |e| e.to_i })
   end
   
   def total_style
-     total_spent < 0 ? "style=color:red;" : "style=color:green;"
+    total_spent < 0 ? "style=color:red;" : "style=color:green;"
   end
 
   def to_currency(number)
@@ -16,12 +16,7 @@ module BoardsHelper
 
 
   def board_array
-
-   board_array = [] 
-      @board.images.each { |image| board_array << image.image_url.to_s.split('/')[-1] }
-    board_array
-   
+    @board.images.map { |image| image.image_url.to_s.split('/')[-1] }
   end
- 
 
 end
