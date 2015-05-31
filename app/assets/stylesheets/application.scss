@@ -1,9 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-.alert{clear:both;}
-.dropBox{width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
-.searchedImages{margin:10px; border:solid black 2px;}
-.vision-board{clear:both;}
+.alert{
+  clear:both;
+}
+.dropBox{
+  width:350px;
+  height:70px;
+  padding:10px;
+  border:1px solid #aaaaaa;
+}
+.searchedImages{
+  margin:10px; 
+  border:solid black 2px;
+}
+.vision-board{
+  clear:both;
+}
 #header{
   border-bottom:1px solid #3b5998;
 }
@@ -65,8 +77,12 @@ h1 {
   line-height:14px;
   color:blue;
 }
-.deleteButton a:hover{text-decoration: none;}
-.editButton a:hover{text-decoration: none;}
+.deleteButton a:hover{
+  text-decoration: none;
+}
+.editButton a:hover{
+  text-decoration: none;
+}
 .editButton {
   display:none;
   position: absolute;
@@ -82,40 +98,34 @@ h1 {
   line-height:10px;
   color:blue;
 }
-
-	
-		.tooltipLovers{
-   			display: inline;
-    		position: relative;
-		}
-		
-		.tooltipLovers:hover:after{
-    		background: #333;
-    		background: rgba(0,0,0,.8);
-    		border-radius: 5px;
-    		bottom: 26px;
-    		color: #fff;
-    		content: attr(title);
-    		left: 20%;
-    		padding: 5px 15px;
-    		position: absolute;
-    		z-index: 98;
-    		width: 220px;
-    		font-size:12px;
-		}
-		
-		.tooltipLovers:hover:before{
-    		border: solid;
-    		border-color: #333 transparent;
-    		border-width: 6px 6px 0 6px;
-    		bottom: 20px;
-    		content: "";
-    		left: 50%;
-    		position: absolute;
-    		z-index: 99;
-		}
-	
-
+.tooltipLovers{
+  display: inline;
+  position: relative;
+}
+.tooltipLovers:hover:after{
+  background: #333;
+	background: rgba(0,0,0,.8);
+  border-radius: 5px;
+  bottom: 26px;
+  color: #fff;
+	content: attr(title);
+	left: 20%;
+	padding: 5px 15px;
+	position: absolute;
+	z-index: 98;
+	width: 220px;
+	font-size:12px;
+}		
+.tooltipLovers:hover:before{
+	border: solid;
+	border-color: #333 transparent;
+	border-width: 6px 6px 0 6px;
+	bottom: 20px;
+	content: "";
+	left: 50%;
+	position: absolute;
+  z-index: 99;
+}
 .gs-w {
   background-size: 100% 100%;
   background-repeat:no-repeat;
@@ -131,15 +141,6 @@ h1 {
   background-color: rgba(255, 255, 255, 1);
   height: 150px;
   position:relative;
-}
-.pixabay{
-	margin:3px 15px 5px 0;
-	font-size:13px;
-	line-height:1.4;
-	color:#777;
-	display:block;
-	padding:8px 12px 7px;
-	border:1px solid #aaa;
 }
 footer{
 	clear:both;
@@ -224,8 +225,8 @@ author:before{
 .accountHeader{
   color:#3b5998;
   font-weight: light;
- border-bottom:1px solid #3b5998;
- text-align:center;
+  border-bottom:1px solid #3b5998;
+  text-align:center;
 }
 .portal{
   margin-top:15px;
@@ -233,7 +234,6 @@ author:before{
   padding:0 10px 10px;
   border-radius:10px;
 }
-/*********************SOCIAL BUTTONS********************/
 .btn-go {
   border-radius: 100%;
   color: white;
@@ -253,8 +253,6 @@ author:before{
   background-color: #3b5998;
   border-color:black;
 }
-
-/*********************LOADER ICON***********************/
 .loader {
   z-index:99;
   font-size: 10px;
@@ -299,5 +297,5 @@ author:before{
     transform: rotate(360deg);
   }
 }
-/***************************END LOADER*************************/
+
 

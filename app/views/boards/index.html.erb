@@ -1,13 +1,11 @@
 <h2>Select Your Vision Board</h2>
   <div class="col-md-8">
-  <% if @boards.count == 0 %>
-    <p>Welcome to VisionBoard, you can create a board by clicking on the button below. Name the board, and if you like, give your board a budget. Don't worry, we won't hold you to your budget :-)</p>
+    <% if @boards.count == 0 %>
+      <p>Welcome to VisionBoard, you can create a board by clicking on the button below. Name the board, and if you like, give your board a budget. Don't worry, we won't hold you to your budget :-)</p>
     <% end %>
   <hr>
     <% @boards.each do |board| %>
-     <p>
-       <%= link_to board.name, board, data: { 'no-turbolink' => true } %>
-     </p>
+     <p><%= link_to board.name, board, data: { 'no-turbolink' => true } %></p>
     <% end %> 
   <hr>
     <%= link_to 'Create A New Vision Board', new_board_path, class: 'btn btn-primary btn-sm'%>

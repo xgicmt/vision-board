@@ -14,14 +14,10 @@ module BoardsHelper
     number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
   end
 
-
   def board_array
-
-   board_array = [] 
-      @board.images.each { |image| board_array << image.image_url.to_s.split('/')[-1] }
+    board_array = [] 
+    @board.images.each { |image| board_array << image.image_url.to_s.split('/')[-1] }
     board_array
-   
   end
  
-
 end

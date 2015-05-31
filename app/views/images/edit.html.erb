@@ -1,9 +1,7 @@
 <h1>Edit Image</h1>
 <div class="row">
   <% if @image.image_price != nil %>
-    <h3>
-      $<%= to_currency(@image.image_price) %>
-    </h3>  
+    <h3>$<%= to_currency(@image.image_price) %></h3>  
   <% end %>
   <div class="col-md-6">
     <img src="<%= @image.image_url%>" />
@@ -11,11 +9,11 @@
   <div class="col-md-6">
     <%= form_for @image, class: 'form-group' do |f| %>
       <div class='form-group'>
-      <%= f.label :image_price %>
-      <%= f.number_field :image_price %>
+        <%= f.label :image_price %>
+        <%= f.number_field :image_price %>
       </div>
       <div class='form-group'>
-      <%= f.submit 'Update' %>
+        <%= f.submit 'Update' %>
       </div>
     <% end %>
   </div>

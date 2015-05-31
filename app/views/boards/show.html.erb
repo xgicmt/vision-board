@@ -1,39 +1,40 @@
 <h1><%= @board.name %></h1> 
 <a class="btn btn-primary" onclick="show_shared(shared)">Share Your Board</a>
-<div id="shared" class="showShared" style="display:none">
-<p>https://www.visionboard.herokuapp.com/<%=@board.shared_link%></p>
-<%= link_to "Go", share_path(@board.shared_link), class: 'btn btn-go' %>
-</div>
-<div class="row">
-<% if @board.budget != nil %>
-<h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
-<h3 style="float:left; margin-left:50px;">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
-<%else %>
- <h3> </h3>
-<% end %>
+  <div id="shared" class="showShared" style="display:none">
+    <p>https://www.visionboard.herokuapp.com/<%=@board.shared_link%></p>
+    <%= link_to "Go", share_path(@board.shared_link), class: 'btn btn-go' %>
+  </div>
+  <div class="row">
+    <% if @board.budget != nil %>
+      <h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
+      <h3 style="float:left; margin-left:50px;">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
+    <%else %>
+      <h3> </h3>
+    <% end %>
   <div class="col-md-8 vision-board">
-   <div class="gridster ready" id="board" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <div class="gridster ready" id="board" ondrop="drop(event)" ondragover="allowDrop(event)">
     <div class="topLoader"><div class="loader"></div></div>
     <ul id="hello">
     <% @board.images.each do |image|%>  
-     <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
-       <div class="editButton">
-         <%= link_to "+", edit_image_path(:id => image.id), class: 'tooltipLovers', title: 'Edit Image Information' %>
-       </div>
-       <div class="deleteButton">
-         <%= link_to "X", board_image_path(@board.id, image.id), title: 'Delete Image', class: 'tooltipLovers', method: :delete, data: {confirm: 'Please confirm that you wish to remove this image.'} %>
-       </div>
-       <% if image.image_price != nil %>
-         <p class="imagePrice">$<%= to_currency(image.image_price) %></p>
-       <% end %>
-     </li>
+      <li data-row="1" data-col="1" data-sizex="<%= image.landscape ? '2' : '1' %>" data-sizey="1" style="background-image:url(<%=image.image_url %>);">
+      <div class="editButton">
+        <%= link_to "+", edit_image_path(:id => image.id), class: 'tooltipLovers', title: 'Edit Image Information' %>
+      </div>
+      <div class="deleteButton">
+        <%= link_to "X", board_image_path(@board.id, image.id), title: 'Delete Image', class: 'tooltipLovers', method: :delete, data: {confirm: 'Please confirm that you wish to remove this image.'} %>
+      </div>
+      <% if image.image_price != nil %>
+        <p class="imagePrice">$<%= to_currency(image.image_price) %></p>
+      <% end %>
+      </li>
     <% end %>
     </ul>
-    </div>
-      <div>
+  </div>
+    <div>
       <%= link_to "Delete Board", @board, class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure you want to remove your vision board and all of it's images?"}  %>
-      </div>
     </div>
+  </div>
+  
   <div class="col-md-4 vision-selection">
     <%= form_for [@board, @board.images.build] do |f| %>
       <div class="form-group">
@@ -54,20 +55,20 @@
       <div class="form-group">
         <%= f.submit "Add Image", class: 'btn btn-success', id: 'addImage', data: {disable_with: "Updating..."} %>
       </div>
-      <% end %>
+    <% end %>
       <h4 class="previewTitles">Images from the Community</h4>
       <p class="previewTitle">See something you like, just drag an image to your board</p>
-        </div>
-      <div id="communityPreviews" class="borderWrapper">
-              <%  image_array = [] %>
-              <%  @selectedImages.each do |img| %>
-                 <% unless board_array.include?(img.image_url.to_s.split('/')[-1]) || image_array.include?(img.image_url.to_s.split('/')[-1]) %>
-                    <img src="<%= img.image_url %>" class="searchedImages" id="<%= img.id %>" height="100" width="100" draggable="true"
+  </div>
+  <div id="communityPreviews" class="borderWrapper">
+    <%  image_array = [] %>
+    <%  @selectedImages.each do |img| %>
+      <% unless board_array.include?(img.image_url.to_s.split('/')[-1]) || image_array.include?(img.image_url.to_s.split('/')[-1]) %>
+        <img src="<%= img.image_url %>" class="searchedImages" id="<%= img.id %>" height="100" width="100" draggable="true"
 ondragstart="drag(event)"/>
-                    <% image_array << img.image_url.to_s.split('/')[-1] %>
-                  <% end %>
-              <% end %>
-      </div>
+        <% image_array << img.image_url.to_s.split('/')[-1] %>
+      <% end %>
+    <% end %>
+  </div>
   </div> 
 <script>
    var board_id = <%= @board.id %>;

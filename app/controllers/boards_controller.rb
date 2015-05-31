@@ -15,7 +15,6 @@ class BoardsController < ApplicationController
       redirect_to root_path
     end
     @selectedImages = Image.order("RANDOM()").limit(10)
-  
   end
 
   def new
@@ -23,7 +22,6 @@ class BoardsController < ApplicationController
   end
 
   def create
-   # @board = Board.new(board_params)
    @board = current_user.boards.build(board_params)
     if @board.save
     	redirect_to @board, notice: 'Board successfully created!'
@@ -45,22 +43,14 @@ class BoardsController < ApplicationController
   end
 
   def update
-  #  if Image.update_attributes(params.require(:image).permit(:imageUrl, :imagePrice, :board_id))
-  #  	flash[:notice] = "Board Updated"
-  #  	redirect_to @board
-  #  else
-  #  	flash[:error] = "Error occurred"
-  #  	redirect_to = @board
-  #  end
   end
   def edit
   end
 
-
 private
 
-    def board_params
-      params.require(:board).permit(:name, :budget, :shared_link)
-    end
+  def board_params
+    params.require(:board).permit(:name, :budget, :shared_link)
+  end
 
 end
