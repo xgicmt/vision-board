@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    if current_user.id == Board.find(params[:id]).user_id
+    if current_user.id == Board.find(params[:id]).user_id || admin?
     	@board = Board.find(params[:id])
     else
       flash[:alert] = "Permissions Error: It seems you are not authorized to view that page."

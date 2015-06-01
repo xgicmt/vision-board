@@ -4,18 +4,15 @@
 
 ####In development by Chris Thompson
 
-##User Stories
+You can find this project live at
+https://visionboard.herokuapp.com/
 
-* Users should login with an email.
-* Users should be able to place images on a canvas, ordered in what ever way they choose.
-* Users should be able to upgrade their account, allowing them to upload their own images.
-* Users should be able to delete images that they no longer wish to keep.
-* Users should be able to save their VisionBoard as a JPEG and save it to their computer.
+##What we created
+####My goal was to create an online version of a vision board.  A vision board is a 'board' with pictures of things and ideas that you want to acquire.  
+####My online version allows users to create one using photos from the Internet or photos from a file, accessing their boards securely with an account from an email address or from their Facebook account. They can then share their boards with people that are not members of the site.
 
-##Extra features
-* Sign up via Facebook or Google+
-* Users should be able to set a value to images and a budget to their vision wall
-* A tutorial on using HTML5 canvas image uploads and such should be included.
-
-
+##Suggested Features should we soldier on
+* Report an offensive picture
+    Maybe a drag and drop to field which sends to Admin screen for review
+* Create a Facebook story for sharing vision boards.
 

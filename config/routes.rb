@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
  
   resources :images
- 
+  resources :admins, only: [:index]
   resources :share, only: [:show]
   
   authenticated :user do
@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'welcome#index'
-
+  
 end

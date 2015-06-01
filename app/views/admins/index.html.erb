@@ -1,0 +1,14 @@
+<h2>Admin selection</h2>
+  <div class="col-md-8">
+  <h3>Total Users: <%= @users.count %> | Total Boards: <%= @boards.count %> | Total Images: <%= @images.count %></h3>
+    <% @users.each do |user| %>
+      <p>Users email:<br> <a href="mailto:<%= user.email %>"><%= user.email %></a></p> 
+      <ul>
+        <% @boards.each do |board| %>
+          <% if board.user_id == user.id %>
+            <li><%= board.name %>: <span style="color:green;font-size:18px;"><%=board.images.count %></span><span style="margin-left:25px;"><%= link_to 'Check It Out', "boards/#{board.id}" %></span></li>
+          <% end %>  
+        <% end %>
+        </ul>
+    <% end %>  
+  </div>
