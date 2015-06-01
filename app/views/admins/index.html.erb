@@ -2,7 +2,8 @@
   <div class="col-md-8">
   <h3>Total Users: <%= @users.count %> | Total Boards: <%= @boards.count %> | Total Images: <%= @images.count %></h3>
     <% @users.each do |user| %>
-      <p>Users email:<br> <a href="mailto:<%= user.email %>"><%= user.email %></a></p> 
+      <p>Users email: <a href="mailto:<%= user.email %>"><%= user.email %></a>
+      <%= link_to "Delete User", admin_user_delete_admins_path(:user_id => user.id), class: 'deleteUser', method: :delete, data: { confirm: 'Are you sure you wish to delete this user?' } %></p> 
       <ul>
         <% @boards.each do |board| %>
           <% if board.user_id == user.id %>
@@ -10,5 +11,6 @@
           <% end %>  
         <% end %>
         </ul>
+        <hr>
     <% end %>  
   </div>

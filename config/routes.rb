@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
  
   resources :images
-  resources :admins, only: [:index]
+  resources :admins do
+    collection do
+      delete 'admin_user_delete'
+    end
+  end
   resources :share, only: [:show]
   
   authenticated :user do

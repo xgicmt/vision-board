@@ -297,5 +297,18 @@ author:before{
     transform: rotate(360deg);
   }
 }
-
+.deleteUser{
+  margin-left:25px;
+  color:red;
+  text-transform: underline;
+}
+.deleteUser:hover{
+  color:purple;
+}
+.deleteUser:before{
+  content:' | '
+}
+.deleteUser:after{
+  content: ' | '
+}
 
