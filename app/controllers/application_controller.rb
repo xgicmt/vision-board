@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 private
 
   def admin?
-    if current_user.email == 'xgicmt@gmail.com' 
+
+    if current_user && current_user.email == 'xgicmt@gmail.com' 
       true 
     else
    	  redirect_to root_path
