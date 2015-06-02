@@ -29,6 +29,10 @@
           <% else %>
           <%= link_to "About", welcome_about_path, class: 'navbar-text' %>
           <% end %>
+          <% if current_user && current_user.id == 1 %>
+          <%= link_to 'Admin', admins_path, class: 'navbar-text' %>
+          <%= link_to 'Images', 'admins/show', class: 'navbar-text' %>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-4">
