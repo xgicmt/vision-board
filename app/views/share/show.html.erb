@@ -1,13 +1,11 @@
 <h1><%= @board.name %></h1>
   <% if @board.budget != nil %>
-    <h3 style="float:left;">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
-    <h3 style="float:left; margin-left:50px;">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
+    <h3 class="budgetRemain">Budget: <small>$<%= to_currency(@board.budget) %></small></h3>
+    <h3 class="budgetRemain">Remaining: <small <%= total_style %>>$ <%= to_currency(total_spent) %></small></h3>
   <% end %>
-  <div id="callToAction" class="col-md-4" > 
     <% unless current_user %>
       <%= link_to 'Create Your Own Vision Board', new_user_registration_path, class: 'btn btn-callToAction' %>
     <% end %>
-  </div>
 <div class="col-md-12 vision-board"> 
   <div class="gridster ready" id="board">
     <div class="topLoader"><div class="loader"></div></div>
