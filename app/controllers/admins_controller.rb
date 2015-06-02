@@ -6,6 +6,11 @@ class AdminsController < ApplicationController
       @boards = Board.all
       @images = Image.all
   end
+  
+  def show
+  	admin?
+      @images = Image.all
+  end
 
   def admin_user_delete
     admin?

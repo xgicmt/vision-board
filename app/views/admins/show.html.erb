@@ -1,0 +1,9 @@
+<div class="col-md-8">
+  <% @images.each do |image| %>
+    <p>Board Number: <%= image.board_id %> Image ID number: <% image.id %></p>
+    <img src="<%= image.image_url %>" id="<%= image.id %>" width="300" />
+    <p><%= image.image_url %></p>
+    <hr>
+   <% end %>
+
+</div>
